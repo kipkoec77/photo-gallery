@@ -1,0 +1,1 @@
+export { default } from "../../../../../src/app/admin/events/[id]/albums/page";
