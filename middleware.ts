@@ -36,6 +36,7 @@ async function hasSession(request: NextRequest): Promise<boolean> {
 	const token = await getToken({
 		req: request,
 		secret: process.env.NEXTAUTH_SECRET ?? process.env.AUTH_SECRET,
+		secureCookie: process.env.NODE_ENV === "production",
 	});
 
 	return Boolean(token);
