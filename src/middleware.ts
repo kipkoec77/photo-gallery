@@ -35,7 +35,7 @@ function isApiPath(pathname: string): boolean {
 async function hasSession(request: NextRequest): Promise<boolean> {
   const token = await getToken({
   req: request,
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET ?? process.env.AUTH_SECRET,
 });
   return Boolean(token);
 }
