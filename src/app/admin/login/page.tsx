@@ -41,7 +41,6 @@ export default function AdminLoginPage() {
       }
 
       router.push(result.url || callbackUrl);
-      router.refresh();
     } catch {
       setError("Login failed. Please try again.");
     } finally {
@@ -67,6 +66,7 @@ export default function AdminLoginPage() {
               type="email"
               required
               autoComplete="email"
+              disabled={submitting}
               value={email}
               onChange={(inputEvent) => setEmail(inputEvent.target.value)}
               className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-3 text-zinc-100 outline-none focus:border-emerald-400/60"
@@ -80,6 +80,7 @@ export default function AdminLoginPage() {
               type="password"
               required
               autoComplete="current-password"
+              disabled={submitting}
               value={password}
               onChange={(inputEvent) => setPassword(inputEvent.target.value)}
               className="rounded-2xl border border-white/10 bg-zinc-900 px-4 py-3 text-zinc-100 outline-none focus:border-emerald-400/60"
